@@ -2,18 +2,32 @@
 class Food extends Product {
     public $foodName;
     public $calories;
+    public static $type = 'Food';
 
-    public function __construct($_name,$_price,$_foodName, $_calories)
+    public function __construct($_name= '',$_price = '',$_foodName = '', $_calories = '')
     {
         parent::__construct($_name,$_price);
         $this->foodName = $_foodName;
         $this->calories = $_calories;
     }
 
-    public function getInfo()
+
+    public function displayTitle()
     {
-        return "$this->name" . "$this->price" . "$this->foodName" . "$this->calories";
+        return "<h4 class='card-title'>$this->name</h4>";
     }
+
+    public function displayPrice()
+    {
+        return "<h5>Price : $this->price €</h5>";
+    }
+
+    public function displayType()
+    {
+        return "<div class='d-flex justify-content-between'><h5>Type: " . self::$type . "</h5><h5>Calories: $this->calories</h5></div>";
+    }
+    
+    
 
 }
 ?>

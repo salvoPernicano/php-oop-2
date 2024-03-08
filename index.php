@@ -3,7 +3,14 @@ include_once __DIR__ . './models/Product.php';
 include_once __DIR__ . './models/Food.php';
 
 $cuccia = new Product('cuccia', '12,99');
-$croccantini = new Food('cibo per cani', '6,99', 'croccantini', '200')
+$croccantini = new Food('cibo per cani', '6,99', 'croccantini', '200');
+
+var_dump($cuccia,$croccantini);
+
+$arrayProdotti = [
+    $cuccia,
+    $croccantini
+];
 ?>
 
 <!DOCTYPE html>
@@ -19,12 +26,18 @@ $croccantini = new Food('cibo per cani', '6,99', 'croccantini', '200')
 <body>
     <div class="container">
         <div class="row">
-            <div class="column">
-            <?php 
-        echo $cuccia->getInfo() ;
-        echo $croccantini->getInfo();
-        ?>
+            <?php foreach($arrayProdotti as $element) { ?>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title"><?= $element->displayTitle() ?></h4>
+                        <div class="card-text"><?= $element->displayPrice() ?></div>
+                        <div class="card-text"><?= $element->displayType() ?></div>
+                    </div>
+                </div>
+                
             </div>
+            <?php } ?>
         </div>
 
     </div>
