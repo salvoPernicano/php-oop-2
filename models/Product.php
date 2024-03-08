@@ -4,11 +4,15 @@ class Product
     public $name;
     public $price;
     public static $type = 'Product';
+    public $animal;
+    public $animalIcon;
 
-    function __construct($_name, $_price)
+    function __construct($_name, $_price, $_animal)
     {
         $this->name = $_name;
         $this->price = $_price;
+        $this->animal = $_animal;
+        $this->getAnimal();
     }
 
     public function displayTitle()
@@ -25,6 +29,20 @@ class Product
     {
         return"<h5> Type :"." " . self::$type ."</h5>";
     }
+
+    public function getAnimal()
+{
+    if ($this->animal === 'dog') {
+        $this->animalIcon = './img/dog-solid.svg';
+    } elseif ($this->animal === 'cat') {
+        $this->animalIcon = './img/cat-solid.svg';
+    } else {
+        $this->animalIcon = 'no-value';
+    }
+
+    return $this->animalIcon;
+}
+
 
 }
 ?>

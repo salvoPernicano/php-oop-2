@@ -4,9 +4,9 @@ class Food extends Product {
     public $calories;
     public static $type = 'Food';
 
-    public function __construct($_name= '',$_price = '',$_foodName = '', $_calories = '')
+    public function __construct($_name= '',$_price = '',$_animal = '',$_foodName = '', $_calories = '')
     {
-        parent::__construct($_name,$_price);
+        parent::__construct($_name,$_price,$_animal);
         $this->foodName = $_foodName;
         $this->calories = $_calories;
     }
