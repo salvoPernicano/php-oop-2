@@ -1,7 +1,9 @@
 <?php
 include_once __DIR__ . './models/Product.php';
+include_once __DIR__ . './models/Food.php';
 
 $cuccia = new Product('cuccia', '12,99');
+$croccantini = new Food('cibo per cani', '6,99', 'croccantini', '200')
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +21,8 @@ $cuccia = new Product('cuccia', '12,99');
         <div class="row">
             <div class="column">
             <?php 
-        echo $cuccia->getInfo()
+        echo $cuccia->getInfo() ;
+        echo $croccantini->getInfo();
         ?>
             </div>
         </div>
