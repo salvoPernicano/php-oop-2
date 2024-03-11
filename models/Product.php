@@ -1,17 +1,20 @@
 <?php
+include_once __DIR__.'/Quantity.php';
 class Product
 {
+    use QuantityTrait;
     public $name;
     public $price;
     public static $type = 'Product';
     public $animal;
     public $animalIcon;
 
-    function __construct($_name, $_price, $_animal)
+    function __construct($_name, $_price, $_quantity,$_animal)
     {
         $this->name = $_name;
         $this->price = $_price;
         $this->animal = $_animal;
+        $this->setQuantity($_quantity);
         $this->getAnimal();
     }
 

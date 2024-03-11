@@ -1,11 +1,13 @@
 <?php
+include_once __DIR__ . '/Quantity.php';
+
 class Toy extends Product {
     public $genre;
     public static $type = 'Toys';
 
-    public function __construct($_name= '',$_price = '',$_animal = '', $_genre = '')
+    public function __construct($_name= '',$_price = '',$_quantity,$_animal = '', $_genre = '')
     {
-        parent::__construct($_name,$_price,$_animal);
+        parent::__construct($_name,$_price,$_quantity,$_animal);
         $this->genre = $_genre;
     }
 
