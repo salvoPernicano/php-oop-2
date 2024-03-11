@@ -5,7 +5,7 @@ class Toy extends Product {
     public $genre;
     public static $type = 'Toys';
 
-    public function __construct($_name= '',$_price = '',$_quantity,$_animal = '', $_genre = '')
+    public function __construct($_name,$_price,$_quantity,$_animal = '', $_genre = '')
     {
         parent::__construct($_name,$_price,$_quantity,$_animal);
         $this->genre = $_genre;
