@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__.'/Quantity.php';
+include_once __DIR__ . '/Quantity.php';
 class Product
 {
     use QuantityTrait;
@@ -9,13 +9,21 @@ class Product
     public $animal;
     public $animalIcon;
 
-    function __construct($_name, $_price, $_quantity,$_animal)
+    function __construct($_name, $_price, $_quantity, $_animal)
     {
-        $this->name = $_name;
-        $this->price = $_price;
-        $this->animal = $_animal;
-        $this->setQuantity($_quantity);
-        $this->getAnimal();
+        try {
+            $this->name = $_name;
+            $this->price = $_price;
+            $this->animal = $_animal;
+            $this->getAnimal();
+            if ($_quantity == 0) {
+                throw new Exception('Item not available');
+            }
+            $this->setQuantity($_quantity);
+        } catch (Exception $e) {
+            echo 'Error : ' . $e->getMessage();
+            return;
+        }
     }
 
     public function displayTitle()
@@ -30,22 +38,19 @@ class Product
 
     public function displayType()
     {
-        return"<h5> Type :"." " . self::$type ."</h5>";
+        return "<h5> Type :" . " " . self::$type . "</h5>";
     }
 
     public function getAnimal()
-{
-    if ($this->animal === 'dog') {
-        $this->animalIcon = './img/dog-solid.svg';
-    } elseif ($this->animal === 'cat') {
-        $this->animalIcon = './img/cat-solid.svg';
-    } else {
-        $this->animalIcon = 'no-value';
+    {
+        if ($this->animal === 'dog') {
+            $this->animalIcon = './img/dog-solid.svg';
+        } elseif ($this->animal === 'cat') {
+            $this->animalIcon = './img/cat-solid.svg';
+        } else {
+            $this->animalIcon = 'no-value';
+        }
+
+        return $this->animalIcon;
     }
-
-    return $this->animalIcon;
 }
-
-
-}
-?>

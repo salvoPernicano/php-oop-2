@@ -3,8 +3,8 @@ include_once __DIR__ . './models/Product.php';
 include_once __DIR__ . './models/Food.php';
 include_once __DIR__ . './models/Toys.php';
 
-$cuccia = new Product('lettiera', '12,99','200' ,'cat');
-$croccantini = new Food('cibo per cani','6,99','dog','50', 'croccantini','1500');
+$cuccia = new Product('lettiera', '12,99','10' ,'cat');
+$croccantini = new Food('cibo per cani','6,99','dog','20', 'croccantini','1500');
 $pallaTennis = new Toy('Palla da Tennis', '3.99','10','dog', 'Palla' );
 
 var_dump($cuccia,$croccantini, $pallaTennis);
